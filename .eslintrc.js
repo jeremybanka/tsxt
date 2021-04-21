@@ -1,18 +1,18 @@
 module.exports = {
   extends: [
-    `plugin:react/recommended`,
-    `airbnb-base`,
-    `plugin:@typescript-eslint/recommended`,
+    `airbnb`,
     `prettier`,
+    `plugin:react/recommended`,
+    `plugin:@typescript-eslint/recommended`,
   ],
-  plugins: [`react`, `@typescript-eslint`, `react-hooks`, `prettier`],
+  plugins: [`prettier`, `@typescript-eslint`, `react`, `react-hooks`],
   parser: `@typescript-eslint/parser`,
   parserOptions: {
+    sourceType: `module`,
+    ecmaVersion: 12,
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
-    sourceType: `module`,
   },
   env: {
     browser: true,
@@ -134,11 +134,13 @@ module.exports = {
         enforceForRenamedProperties: false,
       },
     ],
-    "prettier/prettier": [`error`],
     "quotes": [`error`, `backtick`],
     "quote-props": [`error`, `consistent`, { unnecessary: false }],
     "semi": [`error`, `never`],
     "semi-style": [`error`, `first`],
+
+    // Begin Plugin rules
+    "prettier/prettier": [`error`],
 
     // Begin React rules
     "react/jsx-indent": [
@@ -147,6 +149,7 @@ module.exports = {
       { checkAttributes: true, indentLogicalExpressions: true },
     ],
     "react/destructuring-assignment": `off`,
+    "react/react-in-jsx-scope": `error`,
     "react/jsx-closing-tag-location": `off`,
     "react/jsx-filename-extension": [
       `error`,
@@ -157,6 +160,8 @@ module.exports = {
     "react/jsx-curly-newline": `off`,
     "react/jsx-one-expression-per-line": `off`,
     "react/jsx-props-no-spreading": `off`,
+    "react/jsx-uses-react": `error`,
+    "react/jsx-uses-vars": `error`,
     "react/jsx-wrap-multilines": `off`,
     "react/no-array-index-key": `off`,
     "react/no-danger": `off`,
