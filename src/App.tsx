@@ -1,10 +1,20 @@
-import React, { ReactElement } from "react"
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react"
+import { ReactElement } from "react"
 import logo from "./logo.svg"
 import "./App.css"
 
 const App = (): ReactElement => (
   <div className="App">
-    <header className="App-header">
+    <header
+      className="App-header"
+      css={css`
+        background: #0096ff;
+        a {
+          color: #2ff;
+        }
+      `}
+    >
       <img src={logo} className="App-logo" alt="logo" />
       <p>
         Edit <code>src/App.tsx</code> and save to reload.
